@@ -13,7 +13,7 @@ fn main() {
 
             set.insert(chars[pos]);
 
-            while pos2 >= pos - 13 {
+            while pos2 >= pos - len {
                 if set.contains(&chars[pos2]) {
                     pos += 1;
 
