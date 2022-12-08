@@ -29,7 +29,7 @@ fn main() {
 
         for line in lines {
             if line.starts_with("move") {
-                let parts = line.split_terminator(" ").collect::<Vec<&str>>();
+                let parts = line.split_terminator(' ').collect::<Vec<&str>>();
                 let mut quantity = parts[1].parse::<usize>().unwrap();
                 let origin = parts[3].parse::<usize>().unwrap();
                 let destination = parts[5].parse::<usize>().unwrap();
