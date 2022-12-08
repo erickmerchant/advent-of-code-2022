@@ -18,7 +18,7 @@ fn main() {
 
             for c in last.chars() {
                 if set.contains(&c) {
-                    if needle != None {
+                    if needle.is_some() {
                         panic!("needle already exists")
                     }
 
