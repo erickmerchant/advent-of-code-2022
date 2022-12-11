@@ -1,7 +1,7 @@
 use std::{collections::HashMap, fs, str::Split};
 
 fn get_total<F: Fn(HashMap<String, u32>) -> u32>(lines: Split<char>, process_sizes: F) -> u32 {
-    let mut path: Vec<String> = Vec::new();
+    let mut path: Vec<String> = vec![];
     let mut sizes: HashMap<String, u32> = HashMap::new();
     let mut listing = false;
 
@@ -51,8 +51,6 @@ fn get_total<F: Fn(HashMap<String, u32>) -> u32>(lines: Split<char>, process_siz
             }
         }
     }
-
-    
 
     process_sizes(sizes)
 }

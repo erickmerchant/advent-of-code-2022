@@ -9,14 +9,14 @@ fn main() {
     if let Ok(input) = fs::read_to_string("input/day8.txt") {
         let lines = input.split('\n');
         let mut total = 0;
-        let mut grid: Vec<Vec<Tree>> = Vec::new();
+        let mut grid: Vec<Vec<Tree>> = vec![];
 
         for line in lines {
             if line.is_empty() {
                 break;
             }
 
-            let mut g: Vec<Tree> = Vec::new();
+            let mut g: Vec<Tree> = vec![];
 
             g.extend(line.chars().map(|c| Tree {
                 hidden: true,

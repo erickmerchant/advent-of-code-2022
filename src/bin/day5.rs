@@ -1,13 +1,10 @@
 use std::{fs, str::Split};
 
-fn get_letters<F: Fn(&mut Vec<char>, &mut Vec<char>)>(
-    lines: Split<char>,
-    do_moves: F,
-) -> String {
-    let mut stacks: Vec<Vec<char>> = Vec::new();
+fn get_letters<F: Fn(&mut Vec<char>, &mut Vec<char>)>(lines: Split<char>, do_moves: F) -> String {
+    let mut stacks: Vec<Vec<char>> = vec![];
 
     for _ in 0..9 {
-        stacks.push(Vec::new());
+        stacks.push(vec![]);
     }
 
     for line in lines.clone() {
@@ -36,7 +33,7 @@ fn get_letters<F: Fn(&mut Vec<char>, &mut Vec<char>)>(
             let destination = parts[5].parse::<usize>().unwrap();
 
             let stack_origin = stacks.get_mut(origin - 1).unwrap();
-            let mut moves: Vec<char> = Vec::new();
+            let mut moves: Vec<char> = vec![];
 
             while quantity > 0 {
                 if let Some(m) = stack_origin.pop() {
