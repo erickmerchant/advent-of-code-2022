@@ -41,13 +41,7 @@ fn get_total(lines: Split<char>, mut cycles: Vec<i32>) -> i32 {
 fn main() {
     if let Ok(input) = fs::read_to_string("input/day10.txt") {
         let lines = input.split('\n');
-        let mut cycles: Vec<i32> = Vec::new();
-        cycles.push(220);
-        cycles.push(180);
-        cycles.push(140);
-        cycles.push(100);
-        cycles.push(60);
-        cycles.push(20);
+        let cycles: Vec<i32> = vec![220, 180, 140, 100, 60, 20];
         let total = get_total(lines.clone(), cycles);
 
         println!("{total}");

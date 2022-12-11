@@ -56,12 +56,12 @@ fn get_positions(lines: Split<char>, knots: &mut Vec<Knot>) -> HashSet<(i32, i32
 
                 for i in 0..knots.len() {
                     let next_x = if let Some(knot) = knots.get(i + 1) {
-                        knot.x.clone()
+                        knot.x
                     } else {
                         0
                     };
                     let next_y = if let Some(knot) = knots.get(i + 1) {
-                        knot.y.clone()
+                        knot.y
                     } else {
                         0
                     };
@@ -83,24 +83,25 @@ fn main() {
     if let Ok(input) = fs::read_to_string("input/day9.txt") {
         let lines = input.split('\n');
 
-        let mut knots: Vec<Knot> = Vec::new();
-        knots.push(Knot { x: 0, y: 0 });
-        knots.push(Knot { x: 0, y: 0 });
+        let mut knots: Vec<Knot> = vec![Knot { x: 0, y: 0 }, Knot { x: 0, y: 0 }];
+
         let positions = get_positions(lines.clone(), &mut knots);
 
         println!("{}", positions.len());
 
-        let mut knots: Vec<Knot> = Vec::new();
-        knots.push(Knot { x: 0, y: 0 });
-        knots.push(Knot { x: 0, y: 0 });
-        knots.push(Knot { x: 0, y: 0 });
-        knots.push(Knot { x: 0, y: 0 });
-        knots.push(Knot { x: 0, y: 0 });
-        knots.push(Knot { x: 0, y: 0 });
-        knots.push(Knot { x: 0, y: 0 });
-        knots.push(Knot { x: 0, y: 0 });
-        knots.push(Knot { x: 0, y: 0 });
-        knots.push(Knot { x: 0, y: 0 });
+        let mut knots: Vec<Knot> = vec![
+            Knot { x: 0, y: 0 },
+            Knot { x: 0, y: 0 },
+            Knot { x: 0, y: 0 },
+            Knot { x: 0, y: 0 },
+            Knot { x: 0, y: 0 },
+            Knot { x: 0, y: 0 },
+            Knot { x: 0, y: 0 },
+            Knot { x: 0, y: 0 },
+            Knot { x: 0, y: 0 },
+            Knot { x: 0, y: 0 },
+        ];
+
         let positions = get_positions(lines, &mut knots);
 
         println!("{}", positions.len());
