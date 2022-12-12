@@ -1,9 +1,10 @@
 use std::{fs, str::Split};
 
-fn get_total(lines: Split<char>, mut cycles: Vec<i32>) -> i32 {
+fn get_total(lines: Split<char>, mut cycles: Vec<i32>) -> (i32, String) {
     let mut total: i32 = 0;
     let mut x_total: i32 = 1;
     let mut current_cycle: i32 = 0;
+    let mut crt_pixels: String = String::new();
 
     let mut step = |x_total: i32| {
         current_cycle += 1;
@@ -14,6 +15,19 @@ fn get_total(lines: Split<char>, mut cycles: Vec<i32>) -> i32 {
 
                 cycles.pop();
             }
+        }
+
+        let position_x = current_cycle % 40;
+        let mut pixel = '.';
+
+        if position_x == x_total || position_x == x_total + 1 || position_x == x_total + 2 {
+            pixel = '#';
+        }
+
+        crt_pixels.push(pixel);
+
+        if position_x == 0 {
+            crt_pixels.push('\n');
         }
     };
 
@@ -35,15 +49,16 @@ fn get_total(lines: Split<char>, mut cycles: Vec<i32>) -> i32 {
         }
     }
 
-    total
+    (total, crt_pixels)
 }
 
 fn main() {
     if let Ok(input) = fs::read_to_string("input/day10.txt") {
         let lines = input.split('\n');
         let cycles: Vec<i32> = vec![220, 180, 140, 100, 60, 20];
-        let total = get_total(lines.clone(), cycles);
+        let (total, crt_pixels) = get_total(lines.clone(), cycles);
 
         println!("{total}");
+        println!("{crt_pixels}");
     }
 }
