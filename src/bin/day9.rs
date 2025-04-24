@@ -6,7 +6,7 @@ struct Knot {
     y: i32,
 }
 
-fn get_positions(lines: Split<char>, knots: &mut Vec<Knot>) -> HashSet<(i32, i32)> {
+fn get_positions(lines: Split<char>, knots: &mut [Knot]) -> HashSet<(i32, i32)> {
     let mut positions: HashSet<(i32, i32)> = HashSet::new();
 
     positions.insert((0, 0));

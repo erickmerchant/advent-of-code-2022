@@ -20,6 +20,7 @@ struct Monkey {
 fn get_monkey_business(blocks: Split<&str>, decreaser: usize, rounds: usize) -> usize {
     let mut monkeys: Vec<Monkey> = vec![];
     let mut test_total: usize = 1;
+    let number_regex = Regex::new(r"(\d+)").unwrap();
 
     for block in blocks {
         let mut items: Vec<usize> = vec![];
@@ -37,7 +38,6 @@ fn get_monkey_business(blocks: Split<&str>, decreaser: usize, rounds: usize) -> 
 
         let lines = block.split('\n');
         for line in lines {
-            let number_regex = Regex::new(r"(\d+)").unwrap();
             for cap in number_regex.captures_iter(line) {
                 let num = cap[1].parse::<usize>().unwrap();
 

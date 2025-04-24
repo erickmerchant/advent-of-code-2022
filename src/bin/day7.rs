@@ -44,7 +44,7 @@ fn get_total<F: Fn(HashMap<String, u32>) -> u32>(lines: Split<char>, process_siz
                 }
 
                 if let Some(last) = path.last() {
-                    path.push(format!("{}/{}", last, dir));
+                    path.push(format!("{last}/{dir}"));
                 } else {
                     path.push(dir.to_string());
                 }
